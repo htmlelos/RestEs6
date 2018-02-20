@@ -1,0 +1,21 @@
+{
+  "name": "RestEs6",
+  "version": "0.0.1",
+  "description": "Rest API with async and await",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "license": "MIT",
+  "author": "Lucero Sergio",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-promise-router": "^2.0.0",
+    "mongoose": "^5.0.0-rc1",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.7"
+  }
+}
