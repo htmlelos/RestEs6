@@ -4,7 +4,8 @@
   "description": "Rest API with async and await",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "test": "jest -i"
   },
   "license": "MIT",
   "author": "Lucero Sergio",
@@ -12,8 +13,10 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-promise-router": "^2.0.0",
+    "jest": "^22.4.2",
     "mongoose": "^5.0.0-rc1",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.14.7"

@@ -5,7 +5,7 @@ module.exports = {
   index: async (request, response, next) => {
     const users = await User.find({})
     // throw new Error('ERROR FICTICIO')
-    response.status(200).json({ success: true, user })
+    response.status(200).json({ success: true, users })
   },
   newUser: async (request, response, next) => {
     const newUser = new User(request.body)

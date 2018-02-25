@@ -1,6 +1,7 @@
 // const router = require('express').Router()
 const router = require('express-promise-router')()
-const { index,
+const { 
+  index,
   newUser,
   getUser,
   replaceUser,
@@ -11,12 +12,12 @@ const { index,
 
 // const router = express.Router()
 
-router.get('/users', index)
-router.post('/users', newUser)
-router.get('/users/:userId', getUser)
-router.put('/users/:userId', replaceUser)
-router.delete('/users/:userId', deleteUser)
-router.get('/users/:userId/cars', getUserCars)
-router.post('/users/:userId/cars', addUserCar)
+router.get('/', index)
+router.post('/', newUser)
+router.get('/:userId', getUser)
+router.put('/:userId', replaceUser)
+router.delete('/:userId', deleteUser)
+router.get('/:userId/cars', getUserCars)
+router.post('/:userId/cars', addUserCar)
 
 module.exports = router
