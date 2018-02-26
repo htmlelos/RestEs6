@@ -10,7 +10,7 @@ module.exports = {
   newUser: async (request, response, next) => {
     const newUser = new User(request.body)
     const user = await newUser.save()
-    response.status(200).json({ success: true, user })
+    response.status(201).json({ success: true, user })
   },
   getUser: async (request, response, next) => {
     const { userId } = request.params
@@ -37,7 +37,6 @@ module.exports = {
   getUserCars: async (request, response, next) => {
     const { userId } = request.params
     const user = await User.findById(userId).populate('cars')
-    // console.log('USER', user);
     response.status(200).json({ success: true, cars: user.cars })
   },
   addUserCar: async (request, response, next) => {

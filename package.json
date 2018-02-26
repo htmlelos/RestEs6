@@ -5,12 +5,13 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon ./src/server.js",
-    "test": "jest -i"
+    "test": "jest -i --forceExit"
   },
   "license": "MIT",
   "author": "Lucero Sergio",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "detect-port": "^1.2.2",
     "express": "^4.16.2",
     "express-promise-router": "^2.0.0",
     "jest": "^22.4.2",

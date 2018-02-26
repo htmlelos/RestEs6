@@ -2,17 +2,29 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const detect = require('detect-port')
 const common = require('./routers/public')
 const users = require('./routers/users')
 const cars = require('./routers/cars')
 
 const server = express()
 // Conectar la base de datos
-mongoose.connect('mongodb://localhost/test')
+if (process.env.NODE_ENV === 'test') {
+  mongoose.connect('mongodb://localhost/test')
   .then(db => console.log('Database connected'))
   .catch(error => console.log('Can\'t connect to database'))
+} else {
+  mongoose.connect('mongodb://localhost/cars')
+  .then(db => console.log('Database connected'))
+  .catch(error => console.log('Can\'t connect to database'))
+}
 // Configuraciones
-server.set('port', process.env.PORT || 3000)
+const setPort = async server => {
+  const port = await detect(process.env.PORT || 3000)
+  server.set('port', port)
+}
+
+setPort(server)
 // Middlewares
 server.use(morgan('dev'))
 server.use(bodyParser.json())
