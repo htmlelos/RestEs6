@@ -27,13 +27,13 @@ module.exports = {
     const { carId } = request.params
     const newCar = request.body
     const oldCar = await Car.findByIdAndUpdate(carId, newCar)
-    response.status(200).json({ success: true, car: newCar })
+    response.status(200).json({ success: true })
   },
   updateCar: async (request, response, next) => {
     const { carId } = request.params
     const newCar = request.body
     const oldCar = await Car.findByIdAndUpdate(carId, newCar)
-    response.status(200).json({ success: true, car: newCar })
+    response.status(200).json({ success: true })
   },
   deleteCar: async (request, response, next) => {
     const { carId } = request.params

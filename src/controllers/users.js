@@ -2,6 +2,15 @@ const User = require('../models/users')
 const Car = require('../models/cars')
 
 module.exports = {
+  verifyUser: async (request, response, next) => {
+    const { firstname, lastname, email } = request.body
+    if ((firstname === undefined || firstname === null) ||
+      (lastname === undefined || lastname === null) ||
+      (email === undefined || email === null)) {
+      response.status(401).json({ success: false })
+    }
+    next()
+  },
   index: async (request, response, next) => {
     const users = await User.find({})
     // throw new Error('ERROR FICTICIO')
